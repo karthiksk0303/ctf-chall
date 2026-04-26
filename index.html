@@ -2,127 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S.Y.S.T.E.M_O.V.E.R.R.I.D.E</title>
+    <title>KNULL | Internal Portal</title>
     <style>
-        :root { --neon: #ff003c; --bg: #050505; --text: #00f2ff; }
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Courier New', monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: radial-gradient(circle, #101010 0%, #000 100%);
-            overflow: hidden;
-        }
-        .matrix-box {
-            border: 2px solid var(--neon);
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 0 15px var(--neon), inset 0 0 10px var(--neon);
-            width: 95%;
-            max-width: 550px;
-            text-align: left;
-            position: relative;
-        }
-        .glitch {
-            font-size: 26px;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-shadow: 2px 0 var(--neon);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        .log-area {
-            background: #000;
-            border: 1px solid #222;
-            padding: 15px;
-            margin: 20px 0;
-            font-size: 12px;
-            color: #444;
-            line-height: 1.6;
-            border-radius: 2px;
-        }
-        .input-group {
-            margin-top: 25px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 13px;
-            color: var(--text);
-            text-transform: uppercase;
-        }
-        input {
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid var(--text);
-            color: var(--text);
-            padding: 14px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-            font-family: 'Courier New', monospace;
-            outline: none;
-            transition: 0.3s;
-        }
-        input:focus {
-            box-shadow: 0 0 15px var(--text);
-        }
-        .btn {
-            background: var(--neon);
-            color: #fff;
-            padding: 16px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: 0.4s;
-            box-shadow: 0 0 10px var(--neon);
-        }
-        .btn:hover {
-            background: #fff;
-            color: var(--neon);
-            box-shadow: 0 0 25px #fff;
-        }
-        .info-footer {
-            margin-top: 25px;
-            font-size: 10px;
-            color: #333;
-            text-align: center;
-            text-transform: uppercase;
-        }
+        body { background: #000; color: #fff; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-container { border: 2px solid #fff; padding: 40px; text-align: center; width: 350px; }
+        input { display: block; width: 100%; margin: 15px 0; background: #000; border: 1px solid #fff; color: #fff; padding: 10px; box-sizing: border-box; }
+        button { width: 100%; background: #fff; color: #000; border: none; padding: 10px; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
-
-    <div class="matrix-box">
-        <div class="glitch">UNAUTHORIZED ACCESS_</div>
-        <p style="font-size: 12px; margin: 0; color: #ff003c;">[!] SECURITY CORE OFFLINE: EMERGENCE PROTOCOL ACTIVE</p>
-        
-        <div class="log-area">
-            > [SYS] Re-routing logic to GitHub/karthiksk0303/ctf-chall/issues<br>
-            > [INF] Verification engine waiting for injection string...<br>
-            > [HINT] Target: internal.php [Port 8080]<br>
-            > [DBG] Unserialize method detected in global scope.
+    <div class="login-container">
+        <h2>KNULL_SYSTEM_v1.0</h2>
+        <div id="login-box">
+            <input type="text" id="username" placeholder="Username (guest)">
+            <input type="password" id="password" placeholder="Password (guest123)">
+            <button onclick="login()">AUTHENTICATE</button>
         </div>
-
-        <div class="input-group">
-            <form action="https://github.com/karthiksk0303/ctf-chall/issues/new" target="_blank" method="GET">
-                <label>Target Internal URI:</label>
-                <input type="text" name="title" placeholder="http://localhost:8080/internal.php?data=..." required>
-                <button type="submit" class="btn">INITIALIZE INJECTION</button>
-            </form>
-        </div>
-
-        <div class="info-footer">
-            Execution logs available in GitHub Actions Tab
+        <div id="portal-box" style="display: none;">
+            <h3>Welcome: <span id="display-user"></span></h3>
+            <p id="access-msg">ACCESS_LEVEL: RESTRICTED</p>
+            <div id="flag-section" style="display: none;">
+                <p style="border: 1px dashed #fff; padding: 15px; margin-top: 20px;">FLAG: PSNACET{W3bee3y_N4mmat44aan}</p>
+            </div>
+            <button onclick="logout()" style="margin-top: 20px; background: #555; color: #fff;">DISCONNECT</button>
         </div>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
